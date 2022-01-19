@@ -1,0 +1,84 @@
+{
+  "type": "record",
+  "name": "FuseJava11Value",
+  "namespace": "com.santalucia.amw.pocs.fuse_java11.avro",
+  "fields": [
+    {
+      "name": "id",
+      "type": "long"
+    },
+    {
+      "name": "user",
+      "type": "int"
+    },
+    {
+      "name": "ramo",
+      "type": "int"
+    },
+    {
+      "name": "modalidad",
+      "type": "int"
+    },
+    {
+      "name": "requester",
+      "type": {
+        "type": "record",
+        "name": "Requester",
+        "fields": [
+          {
+            "name": "gender",
+            "type": [
+              "null",
+              {
+                "type": "enum",
+                "name": "Gender",
+                "symbols": [
+                  "M",
+                  "H"
+                ]
+              }
+            ],
+            "default": null
+          },
+          {
+            "name": "nationality",
+            "type": [
+              "null",
+              "string"
+            ],
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "signing",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "date",
+      "type": "string"
+    },
+    {
+      "name": "concepts",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "Concept",
+          "type": "record",
+          "fields": [
+            {
+              "name": "code",
+              "type": "string"
+            },
+            {
+              "name": "description",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
