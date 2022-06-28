@@ -1,0 +1,37 @@
+{
+	"namespace": "com.santalucia.prestaciones.siniestros_odl.negocio.avro",
+	"type": "record",
+	"name": "NegocioValue",
+	"fields": [{
+			"name": "circuitName",
+			"type": "string"
+		},
+		{
+			"name": "eventUniqueId",
+			"type": "string"
+		},
+		{
+			"name": "values",
+			"type": {
+				"type": "array",
+				"items": {
+					"type": "record",
+					"name": "CDCEventField",
+					"fields": [{
+							"name": "name",
+							"type": "string"
+						},
+						{
+							"name": "valueBef",
+							"type": "string"
+						},
+						{
+							"name": "valueAft",
+							"type": "string"
+						}
+					]
+				}
+			}
+		}
+	]
+}

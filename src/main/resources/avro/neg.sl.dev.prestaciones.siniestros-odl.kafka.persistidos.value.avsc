@@ -1,0 +1,2980 @@
+{
+	"type": "record",
+	"name": "PersistidosValue",
+	"namespace": "com.santalucia.prestaciones.siniestros_odl.persistidos.avro",
+	"fields": [{
+		"name": "datosEconomicos",
+		"type": ["null", {
+			"type": "array",
+			"items": {
+				"type": "record",
+				"name": "DatosEconomicos",
+				"fields": [{
+					"name": "datosIdentificativos",
+					"type": {
+						"type": "record",
+						"name": "DatosIdentificativos",
+						"fields": [{
+							"name": "codMoneda",
+							"type": "string"
+						}, {
+							"name": "idDatoEconODL",
+							"type": "string"
+						}, {
+							"name": "idObjAsegurado",
+							"type": "string"
+						}, {
+							"name": "idSiniestroODL",
+							"type": "string"
+						}, {
+							"name": "idSiniestroOrigen",
+							"type": "string"
+						}, {
+							"name": "numVersMovEconom",
+							"type": "int"
+						}, {
+							"name": "numVersMovEconomODL",
+							"type": "int"
+						}]
+					}
+				}, {
+					"name": "fechasYEstados",
+					"type": {
+						"type": "record",
+						"name": "FechasYEstados",
+						"fields": [{
+							"name": "codEstActual",
+							"type": "string"
+						}, {
+							"name": "desEstActual",
+							"type": "string"
+						}, {
+							"name": "fecEstActual",
+							"type": {
+								"type": "int",
+								"logicalType": "date"
+							}
+						}, {
+							"name": "historico",
+							"type": ["null", {
+								"type": "array",
+								"items": {
+									"type": "record",
+									"name": "HistoricoEstados",
+									"fields": [{
+										"name": "causas",
+										"type": ["null", {
+											"type": "array",
+											"items": {
+												"type": "record",
+												"name": "CausaEstado",
+												"fields": [{
+													"name": "codTipCausEstado",
+													"type": ["null", "string"],
+													"default": null
+												}, {
+													"name": "desTipCausEstado",
+													"type": ["null", "string"],
+													"default": null
+												}, {
+													"name": "numOrdenCausa",
+													"type": ["null", "int"],
+													"default": null
+												}]
+											},
+											"java-class": "java.util.List"
+										}],
+										"default": null
+									}, {
+										"name": "codEstado",
+										"type": "string"
+									}, {
+										"name": "desEstado",
+										"type": "string"
+									}, {
+										"name": "fecEstado",
+										"type": {
+											"type": "int",
+											"logicalType": "date"
+										}
+									}, {
+										"name": "fecFinEstado",
+										"type": {
+											"type": "int",
+											"logicalType": "date"
+										}
+									}, {
+										"name": "numOrdenEstado",
+										"type": "int"
+									}]
+								},
+								"java-class": "java.util.List"
+							}],
+							"default": null
+						}]
+					}
+				}, {
+					"name": "metadata",
+					"type": ["null", {
+						"type": "record",
+						"name": "Metadata",
+						"fields": [{
+							"name": "codVersion",
+							"type": "int"
+						}, {
+							"name": "fecFiltroCDC",
+							"type": {
+								"type": "long",
+								"logicalType": "timestamp-millis"
+							}
+						}, {
+							"name": "fecFinDatos",
+							"type": ["null", {
+								"type": "long",
+								"logicalType": "timestamp-millis"
+							}],
+							"default": null
+						}, {
+							"name": "fecHoraRegistro",
+							"type": {
+								"type": "long",
+								"logicalType": "timestamp-millis"
+							}
+						}, {
+							"name": "fecNoPersistida",
+							"type": ["null", {
+								"type": "long",
+								"logicalType": "timestamp-millis"
+							}],
+							"default": null
+						}, {
+							"name": "fecSQL",
+							"type": {
+								"type": "long",
+								"logicalType": "timestamp-millis"
+							}
+						}, {
+							"name": "idClienteCreacion",
+							"type": "string"
+						}, {
+							"name": "numOffsetCDC",
+							"type": "long"
+						}, {
+							"name": "numOffsetCarga",
+							"type": "long"
+						}, {
+							"name": "numOffsetFiltrado",
+							"type": "long"
+						}, {
+							"name": "numOffsetPersistid",
+							"type": "long"
+						}, {
+							"name": "numUltUsuario",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "txtCircuitoOrigen",
+							"type": "string"
+						}, {
+							"name": "txtHash",
+							"type": "string"
+						}]
+					}],
+					"default": null
+				}, {
+					"name": "movimientosEconom",
+					"type": {
+						"type": "record",
+						"name": "MovimientosEconomicos",
+						"fields": [{
+							"name": "codAgencia",
+							"type": "string"
+						}, {
+							"name": "codTipAgrupacion",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codTipo",
+							"type": "string"
+						}, {
+							"name": "datosCert",
+							"type": ["null", {
+								"type": "record",
+								"name": "DatosCertificados",
+								"fields": [{
+									"name": "impRedPrimaLey",
+									"type": ["null", "double"],
+									"default": null
+								}, {
+									"name": "impRetRendNeto",
+									"type": ["null", "double"],
+									"default": null
+								}, {
+									"name": "impTotComRedNorm",
+									"type": ["null", "double"],
+									"default": null
+								}, {
+									"name": "impTotRedNorm",
+									"type": ["null", "double"],
+									"default": null
+								}, {
+									"name": "impTotRedRT",
+									"type": ["null", "double"],
+									"default": null
+								}, {
+									"name": "impTotRenNetoReduc",
+									"type": ["null", "double"],
+									"default": null
+								}, {
+									"name": "impTotRenRed",
+									"type": ["null", "double"],
+									"default": null
+								}, {
+									"name": "impTotRend",
+									"type": ["null", "double"],
+									"default": null
+								}, {
+									"name": "impTotRendNetoComp",
+									"type": ["null", "double"],
+									"default": null
+								}, {
+									"name": "indSituaFamiliar",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "indTipoViaCert",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "numDescendientes",
+									"type": ["null", "int"],
+									"default": null
+								}, {
+									"name": "numDocCert",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "numIdentifCony",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "pctIRPF",
+									"type": ["null", "double"],
+									"default": null
+								}]
+							}],
+							"default": null
+						}, {
+							"name": "desgloseContable",
+							"type": ["null", {
+								"type": "array",
+								"items": {
+									"type": "record",
+									"name": "DesgloseContable",
+									"fields": [{
+										"name": "codAgencia",
+										"type": ["null", "string"],
+										"default": null
+									}, {
+										"name": "codConcepLiquida",
+										"type": ["null", "string"],
+										"default": null
+									}, {
+										"name": "codEntCoaseguro",
+										"type": ["null", "string"],
+										"default": null
+									}, {
+										"name": "codMediador",
+										"type": ["null", "string"],
+										"default": null
+									}, {
+										"name": "codModContable",
+										"type": ["null", "string"],
+										"default": null
+									}, {
+										"name": "codRamContable",
+										"type": ["null", "string"],
+										"default": null
+									}, {
+										"name": "impDesglose",
+										"type": ["null", "double"],
+										"default": null
+									}, {
+										"name": "impIRPF",
+										"type": ["null", "double"],
+										"default": null
+									}, {
+										"name": "indTipCuenta",
+										"type": ["null", "string"],
+										"default": null
+									}, {
+										"name": "indTipDatContable",
+										"type": ["null", "string"],
+										"default": null
+									}, {
+										"name": "indTipGestCont",
+										"type": ["null", "string"],
+										"default": null
+									}, {
+										"name": "indTipMediador",
+										"type": ["null", "string"],
+										"default": null
+									}, {
+										"name": "numOrdenDesglose",
+										"type": ["null", "int"],
+										"default": null
+									}, {
+										"name": "numOrdenMovimiento",
+										"type": ["null", "int"],
+										"default": null
+									}, {
+										"name": "numRecibo",
+										"type": ["null", "string"],
+										"default": null
+									}]
+								},
+								"java-class": "java.util.List"
+							}],
+							"default": null
+						}, {
+							"name": "detalle",
+							"type": ["null", {
+								"type": "array",
+								"items": {
+									"type": "record",
+									"name": "Detalle",
+									"fields": [{
+										"name": "codAgrupGarantia",
+										"type": ["null", "string"],
+										"default": null
+									}, {
+										"name": "codGarantia",
+										"type": ["null", "string"],
+										"default": null
+									}, {
+										"name": "codModContable",
+										"type": ["null", "string"],
+										"default": null
+									}, {
+										"name": "codRamContable",
+										"type": ["null", "string"],
+										"default": null
+									}, {
+										"name": "codSubgarantia",
+										"type": ["null", "string"],
+										"default": null
+									}, {
+										"name": "codTipComplem",
+										"type": ["null", "string"],
+										"default": null
+									}, {
+										"name": "idRiesgo",
+										"type": ["null", "string"],
+										"default": null
+									}, {
+										"name": "impMovimiento",
+										"type": ["null", "double"],
+										"default": null
+									}, {
+										"name": "numOrdenMovimiento",
+										"type": ["null", "int"],
+										"default": null
+									}]
+								},
+								"java-class": "java.util.List"
+							}],
+							"default": null
+						}, {
+							"name": "fecEnvSAP",
+							"type": ["null", {
+								"type": "int",
+								"logicalType": "date"
+							}],
+							"default": null
+						}, {
+							"name": "fecLiquiPago",
+							"type": ["null", {
+								"type": "int",
+								"logicalType": "date"
+							}],
+							"default": null
+						}, {
+							"name": "fecMovimiento",
+							"type": {
+								"type": "int",
+								"logicalType": "date"
+							}
+						}, {
+							"name": "fecPagSAP",
+							"type": ["null", {
+								"type": "int",
+								"logicalType": "date"
+							}],
+							"default": null
+						}, {
+							"name": "idFacturaODL",
+							"type": "string"
+						}, {
+							"name": "impLiquido",
+							"type": ["null", "double"],
+							"default": null
+						}, {
+							"name": "impLiquidoPer",
+							"type": ["null", "double"],
+							"default": null
+						}, {
+							"name": "impMovimiento",
+							"type": "double"
+						}, {
+							"name": "indConsignacion",
+							"type": "string"
+						}, {
+							"name": "indPagProvFuner",
+							"type": "string"
+						}, {
+							"name": "indTipMedioPago",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "indTipMovSGR",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "numEncargo",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "numFactura",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "numProcJudicial",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "numRemesa",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "perceptor",
+							"type": ["null", {
+								"type": "record",
+								"name": "Perceptor",
+								"fields": [{
+									"name": "codBIC",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "codIBAN",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "codSexo",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "codTipoDocumento",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "codTipoPersona",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "codTipoRol",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "coordenadas",
+									"type": ["null", {
+										"type": "record",
+										"name": "Coordenadas",
+										"fields": [{
+											"name": "codTipoCoord",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "descSistCoord",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "descTipoCoord",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "indSistCoord",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "numCoordX",
+											"type": ["null", "double"],
+											"default": null
+										}, {
+											"name": "numCoordY",
+											"type": ["null", "double"],
+											"default": null
+										}, {
+											"name": "secCensal",
+											"type": ["null", "int"],
+											"default": null
+										}]
+									}],
+									"default": null
+								}, {
+									"name": "desSexo",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "desTipoDocumento",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "desTipoPersona",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "desTipoRol",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "domicilio",
+									"type": ["null", {
+										"type": "record",
+										"name": "Domicilio",
+										"fields": [{
+											"name": "codEntColectiva",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "codEntSingular",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "codLocalidad",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "codMunicipio",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "codNucPobla",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "codPais",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "codPostal",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "codProvincia",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "codTipVia",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "coordenada",
+											"type": ["null", {
+												"type": "record",
+												"name": "Coordenada",
+												"fields": [{
+													"name": "codTipoCoord",
+													"type": ["null", "string"],
+													"default": null
+												}, {
+													"name": "desSistCoord",
+													"type": ["null", "string"],
+													"default": null
+												}, {
+													"name": "desTipoCoord",
+													"type": ["null", "string"],
+													"default": null
+												}, {
+													"name": "indSistCoord",
+													"type": ["null", "string"],
+													"default": null
+												}, {
+													"name": "numCoordX",
+													"type": ["null", "double"],
+													"default": null
+												}, {
+													"name": "numCoordY",
+													"type": ["null", "double"],
+													"default": null
+												}]
+											}],
+											"default": null
+										}, {
+											"name": "desDomicilio",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "desLocalidad",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "desPais",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "desPoblacion",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "desProvincia",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "desTipVia",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "numCompDomic",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "numDomicilio",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "valBloqueDomic",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "valEscalDomic",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "valPisoDomic",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "valPortalDomic",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "valPuertaDomic",
+											"type": ["null", "string"],
+											"default": null
+										}]
+									}],
+									"default": null
+								}, {
+									"name": "fecCaducidad",
+									"type": ["null", {
+										"type": "int",
+										"logicalType": "date"
+									}],
+									"default": null
+								}, {
+									"name": "fecNacimiento",
+									"type": ["null", {
+										"type": "int",
+										"logicalType": "date"
+									}],
+									"default": null
+								}, {
+									"name": "idPersona",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "indMarEmbargo",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "numDocumento",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "numOrdRol",
+									"type": ["null", "int"],
+									"default": null
+								}, {
+									"name": "numProfesional",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "txtNombre",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "txtPrimerApellido",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "txtRazonSocial",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "txtSegundoApellido",
+									"type": ["null", "string"],
+									"default": null
+								}]
+							}],
+							"default": null
+						}]
+					}
+				}]
+			},
+			"java-class": "java.util.List"
+		}],
+		"default": null
+	}, {
+		"name": "eventosCatastroficos",
+		"type": ["null", {
+			"type": "record",
+			"name": "EventosCatastroficos",
+			"fields": [{
+				"name": "datosIdentificativos",
+				"type": {
+					"type": "record",
+					"name": "DatosIdentificativos",
+					"fields": [{
+						"name": "codCausa",
+						"type": "string"
+					}, {
+						"name": "codEvento",
+						"type": "string"
+					}, {
+						"name": "codTipo",
+						"type": "string"
+					}, {
+						"name": "codZonaAfectEvento",
+						"type": "string"
+					}, {
+						"name": "descEvento",
+						"type": "string"
+					}, {
+						"name": "fecFinEvento",
+						"type": ["null", {
+							"type": "int",
+							"logicalType": "date"
+						}],
+						"default": null
+					}, {
+						"name": "fecInicEvento",
+						"type": {
+							"type": "int",
+							"logicalType": "date"
+						}
+					}, {
+						"name": "idEvento",
+						"type": "string"
+					}, {
+						"name": "idEventoODL",
+						"type": "string"
+					}, {
+						"name": "numVersEvento",
+						"type": "int"
+					}, {
+						"name": "numVersEventoODL",
+						"type": "int"
+					}]
+				}
+			}, {
+				"name": "metadata",
+				"type": ["null", {
+					"type": "record",
+					"name": "Metadata",
+					"fields": [{
+						"name": "codVersion",
+						"type": "int"
+					}, {
+						"name": "fecFiltroCDC",
+						"type": {
+							"type": "long",
+							"logicalType": "timestamp-millis"
+						}
+					}, {
+						"name": "fecFinDatos",
+						"type": ["null", {
+							"type": "long",
+							"logicalType": "timestamp-millis"
+						}],
+						"default": null
+					}, {
+						"name": "fecHoraRegistro",
+						"type": {
+							"type": "long",
+							"logicalType": "timestamp-millis"
+						}
+					}, {
+						"name": "fecNoPersistida",
+						"type": ["null", {
+							"type": "long",
+							"logicalType": "timestamp-millis"
+						}],
+						"default": null
+					}, {
+						"name": "fecSQL",
+						"type": {
+							"type": "long",
+							"logicalType": "timestamp-millis"
+						}
+					}, {
+						"name": "idClienteCreacion",
+						"type": "string"
+					}, {
+						"name": "numOffsetCDC",
+						"type": "long"
+					}, {
+						"name": "numOffsetCarga",
+						"type": "long"
+					}, {
+						"name": "numOffsetFiltrado",
+						"type": "long"
+					}, {
+						"name": "numOffsetPersistid",
+						"type": "long"
+					}, {
+						"name": "numUltUsuario",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "txtCircuitoOrigen",
+						"type": "string"
+					}, {
+						"name": "txtHash",
+						"type": "string"
+					}]
+				}],
+				"default": null
+			}]
+		}],
+		"default": null
+	}, {
+		"name": "facturas",
+		"type": ["null", {
+			"type": "array",
+			"items": {
+				"type": "record",
+				"name": "Facturas",
+				"fields": [{
+					"name": "datosIdentificativos",
+					"type": {
+						"type": "record",
+						"name": "DatosIdentificativos",
+						"fields": [{
+							"name": "codMoneda",
+							"type": "string"
+						}, {
+							"name": "codTipoDocFactPr",
+							"type": "string"
+						}, {
+							"name": "desTipoDocFactPr",
+							"type": "string"
+						}, {
+							"name": "fecFactura",
+							"type": {
+								"type": "int",
+								"logicalType": "date"
+							}
+						}, {
+							"name": "idDocumProvFactPrin",
+							"type": "string"
+						}, {
+							"name": "idFactura",
+							"type": "string"
+						}, {
+							"name": "idFacturaODL",
+							"type": "string"
+						}, {
+							"name": "idSiniestroODL",
+							"type": "string"
+						}, {
+							"name": "idSiniestroOrigen",
+							"type": "string"
+						}, {
+							"name": "impTotalFact",
+							"type": "double"
+						}, {
+							"name": "indFactAutom",
+							"type": "string"
+						}, {
+							"name": "indFactFuner",
+							"type": "string"
+						}, {
+							"name": "numEncargo",
+							"type": "string"
+						}, {
+							"name": "numFactura",
+							"type": "string"
+						}, {
+							"name": "numRemesa",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "numVersFactura",
+							"type": "int"
+						}, {
+							"name": "numVersFacturaODL",
+							"type": "int"
+						}]
+					}
+				}, {
+					"name": "desgloseFactFuner",
+					"type": ["null", {
+						"type": "record",
+						"name": "DesgloseFactFuner",
+						"fields": [{
+							"name": "codModContable",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codRamContable",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codTipIVA",
+							"type": "string"
+						}, {
+							"name": "codTipREGE",
+							"type": "string"
+						}, {
+							"name": "codTipoDocFactSec",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codTipoFactura",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "desTipoDocFactSec",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "fecFactDesglose",
+							"type": ["null", {
+								"type": "int",
+								"logicalType": "date"
+							}],
+							"default": null
+						}, {
+							"name": "idDocumProvFactSec",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "impBaseIVA",
+							"type": "double"
+						}, {
+							"name": "impBaseREGE",
+							"type": "int"
+						}, {
+							"name": "impIRPF",
+							"type": "double"
+						}, {
+							"name": "impIVA",
+							"type": "double"
+						}, {
+							"name": "impLiquido",
+							"type": ["null", "double"],
+							"default": null
+						}, {
+							"name": "impREGE",
+							"type": "double"
+						}, {
+							"name": "numFactDesg",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "pctIRPF",
+							"type": "double"
+						}, {
+							"name": "pctIVA",
+							"type": "double"
+						}, {
+							"name": "pctREGE",
+							"type": "double"
+						}, {
+							"name": "txtNombre",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "txtPrimerApellido",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "txtRazonSocial",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "txtSegundoApellido",
+							"type": ["null", "string"],
+							"default": null
+						}]
+					}],
+					"default": null
+				}, {
+					"name": "desgloseFactGen",
+					"type": {
+						"type": "record",
+						"name": "DesgloseFactGen",
+						"fields": [{
+							"name": "codTipIVA",
+							"type": "string"
+						}, {
+							"name": "impConceptoD",
+							"type": "double"
+						}, {
+							"name": "impGasto",
+							"type": "double"
+						}, {
+							"name": "impHonorSuplid",
+							"type": "double"
+						}, {
+							"name": "impHonorarios",
+							"type": "double"
+						}, {
+							"name": "impIRPF",
+							"type": "double"
+						}, {
+							"name": "impIVA",
+							"type": "double"
+						}, {
+							"name": "impOtrGastos",
+							"type": "double"
+						}, {
+							"name": "pctIRPF",
+							"type": "double"
+						}, {
+							"name": "pctIVA",
+							"type": "double"
+						}, {
+							"name": "valGastosIVANoReten",
+							"type": "double"
+						}, {
+							"name": "valGastosIVAReten",
+							"type": "double"
+						}, {
+							"name": "valGastosNoIVAReten",
+							"type": "double"
+						}]
+					}
+				}, {
+					"name": "metadata",
+					"type": ["null", {
+						"type": "record",
+						"name": "Metadata",
+						"fields": [{
+							"name": "codVersion",
+							"type": "int"
+						}, {
+							"name": "fecFiltroCDC",
+							"type": {
+								"type": "long",
+								"logicalType": "timestamp-millis"
+							}
+						}, {
+							"name": "fecFinDatos",
+							"type": ["null", {
+								"type": "long",
+								"logicalType": "timestamp-millis"
+							}],
+							"default": null
+						}, {
+							"name": "fecHoraRegistro",
+							"type": {
+								"type": "long",
+								"logicalType": "timestamp-millis"
+							}
+						}, {
+							"name": "fecNoPersistida",
+							"type": ["null", {
+								"type": "long",
+								"logicalType": "timestamp-millis"
+							}],
+							"default": null
+						}, {
+							"name": "fecSQL",
+							"type": {
+								"type": "long",
+								"logicalType": "timestamp-millis"
+							}
+						}, {
+							"name": "idClienteCreacion",
+							"type": "string"
+						}, {
+							"name": "numOffsetCDC",
+							"type": "long"
+						}, {
+							"name": "numOffsetCarga",
+							"type": "long"
+						}, {
+							"name": "numOffsetFiltrado",
+							"type": "long"
+						}, {
+							"name": "numOffsetPersistid",
+							"type": "long"
+						}, {
+							"name": "numUltUsuario",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "txtCircuitoOrigen",
+							"type": "string"
+						}, {
+							"name": "txtHash",
+							"type": "string"
+						}]
+					}],
+					"default": null
+				}]
+			},
+			"java-class": "java.util.List"
+		}],
+		"default": null
+	}, {
+		"name": "reserva",
+		"type": ["null", {
+			"type": "record",
+			"name": "Reserva",
+			"fields": [{
+				"name": "datosIdentificativos",
+				"type": {
+					"type": "record",
+					"name": "DatosIdentificativos",
+					"fields": [{
+						"name": "codMoneda",
+						"type": "string"
+					}, {
+						"name": "idReservaODL",
+						"type": "string"
+					}, {
+						"name": "idSiniestroODL",
+						"type": "string"
+					}, {
+						"name": "idSiniestroOrigen",
+						"type": "string"
+					}, {
+						"name": "numVersReserva",
+						"type": "int"
+					}, {
+						"name": "numVersReservaODL",
+						"type": "int"
+					}]
+				}
+			}, {
+				"name": "metadata",
+				"type": ["null", {
+					"type": "record",
+					"name": "Metadata",
+					"fields": [{
+						"name": "codVersion",
+						"type": "int"
+					}, {
+						"name": "fecFiltroCDC",
+						"type": {
+							"type": "long",
+							"logicalType": "timestamp-millis"
+						}
+					}, {
+						"name": "fecFinDatos",
+						"type": ["null", {
+							"type": "long",
+							"logicalType": "timestamp-millis"
+						}],
+						"default": null
+					}, {
+						"name": "fecHoraRegistro",
+						"type": {
+							"type": "long",
+							"logicalType": "timestamp-millis"
+						}
+					}, {
+						"name": "fecNoPersistida",
+						"type": ["null", {
+							"type": "long",
+							"logicalType": "timestamp-millis"
+						}],
+						"default": null
+					}, {
+						"name": "fecSQL",
+						"type": {
+							"type": "long",
+							"logicalType": "timestamp-millis"
+						}
+					}, {
+						"name": "idClienteCreacion",
+						"type": "string"
+					}, {
+						"name": "numOffsetCDC",
+						"type": "long"
+					}, {
+						"name": "numOffsetCarga",
+						"type": "long"
+					}, {
+						"name": "numOffsetFiltrado",
+						"type": "long"
+					}, {
+						"name": "numOffsetPersistid",
+						"type": "long"
+					}, {
+						"name": "numUltUsuario",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "txtCircuitoOrigen",
+						"type": "string"
+					}, {
+						"name": "txtHash",
+						"type": "string"
+					}]
+				}],
+				"default": null
+			}, {
+				"name": "reserva",
+				"type": {
+					"type": "record",
+					"name": "DatosReservas",
+					"fields": [{
+						"name": "codTipAgrupacion",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "detalle",
+						"type": ["null", {
+							"type": "array",
+							"items": {
+								"type": "record",
+								"name": "DetalleReserva",
+								"fields": [{
+									"name": "codAgrupGarantia",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "codGarantia",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "codSubgarantia",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "codTipComplem",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "fecReserva",
+									"type": {
+										"type": "int",
+										"logicalType": "date"
+									}
+								}, {
+									"name": "idObjAsegurado",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "idRiesgo",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "impReserPenLiq",
+									"type": ["null", "int"],
+									"default": null
+								}, {
+									"name": "impReserPenPag",
+									"type": ["null", "int"],
+									"default": null
+								}]
+							},
+							"java-class": "java.util.List"
+						}],
+						"default": null
+					}, {
+						"name": "fecReserva",
+						"type": "string"
+					}, {
+						"name": "impReserPenLiq",
+						"type": ["null", "int"],
+						"default": null
+					}, {
+						"name": "impReserPenPag",
+						"type": ["null", "int"],
+						"default": null
+					}]
+				}
+			}]
+		}],
+		"default": null
+	}, {
+		"name": "siniestros",
+		"type": {
+			"type": "record",
+			"name": "Siniestros",
+			"fields": [{
+				"name": "asesorias",
+				"type": ["null", {
+					"type": "array",
+					"items": {
+						"type": "record",
+						"name": "Asesoria",
+						"fields": [{
+							"name": "desTipoAsesoria",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "estado",
+							"type": {
+								"type": "record",
+								"name": "EstadoAsesoria",
+								"fields": [{
+									"name": "causas",
+									"type": ["null", {
+										"type": "array",
+										"items": {
+											"type": "record",
+											"name": "CausaAsesoria",
+											"fields": [{
+												"name": "codTipCausEstado",
+												"type": ["null", "string"],
+												"default": null
+											}, {
+												"name": "desTipCausEstado",
+												"type": ["null", "string"],
+												"default": null
+											}, {
+												"name": "numOrdenCausa",
+												"type": ["null", "int"],
+												"default": null
+											}]
+										},
+										"java-class": "java.util.List"
+									}],
+									"default": null
+								}, {
+									"name": "codEstado",
+									"type": "string"
+								}, {
+									"name": "codSubestado",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "desEstado",
+									"type": "string"
+								}, {
+									"name": "desSubestado",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "fecEstado",
+									"type": "string"
+								}]
+							}
+						}, {
+							"name": "fecPeticAsesoria",
+							"type": ["null", {
+								"type": "int",
+								"logicalType": "date"
+							}],
+							"default": null
+						}, {
+							"name": "fecRespAsesoria",
+							"type": ["null", {
+								"type": "int",
+								"logicalType": "date"
+							}],
+							"default": null
+						}, {
+							"name": "idAsesoria",
+							"type": "string"
+						}, {
+							"name": "indAsesoria",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "numUsPeticAsesoria",
+							"type": ["null", "string"],
+							"default": null
+						}]
+					},
+					"java-class": "java.util.List"
+				}],
+				"default": null
+			}, {
+				"name": "coaseguros",
+				"type": ["null", {
+					"type": "array",
+					"items": {
+						"type": "record",
+						"name": "Coaseguro",
+						"fields": [{
+							"name": "codEntCoaseguro",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codSinExtVincCoas",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "indTipCoaseguro",
+							"type": ["null", "string"],
+							"default": null
+						}]
+					},
+					"java-class": "java.util.List"
+				}],
+				"default": null
+			}, {
+				"name": "comunicaciones",
+				"type": ["null", {
+					"type": "array",
+					"items": {
+						"type": "record",
+						"name": "Comunicacion",
+						"fields": [{
+							"name": "codCierreComun",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codTipo",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codTipoFuncUsGrab",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codTipoRol",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codTipoUrgencia",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "estado",
+							"type": {
+								"type": "record",
+								"name": "EstadoComunicacion",
+								"fields": [{
+									"name": "causas",
+									"type": ["null", {
+										"type": "array",
+										"items": {
+											"type": "record",
+											"name": "CausaComunicacion",
+											"fields": [{
+												"name": "codTipCausEstado",
+												"type": ["null", "string"],
+												"default": null
+											}, {
+												"name": "desTipCausEstado",
+												"type": ["null", "string"],
+												"default": null
+											}, {
+												"name": "numOrdenCausa",
+												"type": ["null", "int"],
+												"default": null
+											}]
+										},
+										"java-class": "java.util.List"
+									}],
+									"default": null
+								}, {
+									"name": "codEstado",
+									"type": "string"
+								}, {
+									"name": "codSubestado",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "desEstado",
+									"type": "string"
+								}, {
+									"name": "desSubestado",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "fecEstado",
+									"type": {
+										"type": "int",
+										"logicalType": "date"
+									}
+								}]
+							}
+						}, {
+							"name": "fecEntComun",
+							"type": ["null", {
+								"type": "int",
+								"logicalType": "date"
+							}],
+							"default": null
+						}, {
+							"name": "fecSalComun",
+							"type": ["null", {
+								"type": "int",
+								"logicalType": "date"
+							}],
+							"default": null
+						}, {
+							"name": "idComunicacion",
+							"type": "string"
+						}, {
+							"name": "idTipoComunicacion",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "indCanalEntComun",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "numUsGrab",
+							"type": ["null", "string"],
+							"default": null
+						}]
+					},
+					"java-class": "java.util.List"
+				}],
+				"default": null
+			}, {
+				"name": "datosIdentificativos",
+				"type": {
+					"type": "record",
+					"name": "DatosIdentificativos",
+					"fields": [{
+						"name": "codCausa",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "codCiaOrigen",
+						"type": "string"
+					}, {
+						"name": "codModalidadSin",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "codRamoSin",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "codSistActual",
+						"type": "string"
+					}, {
+						"name": "codSistOrigen",
+						"type": "string"
+					}, {
+						"name": "codSubcausa",
+						"type": ["null", "int"],
+						"default": null
+					}, {
+						"name": "codSubtipo",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "codTipo",
+						"type": "string"
+					}, {
+						"name": "companniaExternaSin",
+						"type": ["null", {
+							"type": "array",
+							"items": {
+								"type": "record",
+								"name": "CompaniaExternaSin",
+								"fields": [{
+									"name": "codSinExtVinc",
+									"type": ["null", "string"],
+									"default": null
+								}]
+							},
+							"java-class": "java.util.List"
+						}],
+						"default": null
+					}, {
+						"name": "desCausa",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "desCiaOrigen",
+						"type": "string"
+					}, {
+						"name": "desSistActual",
+						"type": "string"
+					}, {
+						"name": "desSistOrigen",
+						"type": "string"
+					}, {
+						"name": "desSubcausa",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "desSubtipo",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "desTipo",
+						"type": "string"
+					}, {
+						"name": "idEventoODL",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "idPolizaODL",
+						"type": "string"
+					}, {
+						"name": "idPolizaOrigen",
+						"type": "string"
+					}, {
+						"name": "idSiniestroODL",
+						"type": "string"
+					}, {
+						"name": "idSiniestroOrigen",
+						"type": "string"
+					}, {
+						"name": "numPoliza",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "numSiniestro",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "numVersPolizaOrigen",
+						"type": "int"
+					}, {
+						"name": "numVersSiniestODL",
+						"type": "int"
+					}, {
+						"name": "numVersSiniestOrig",
+						"type": "int"
+					}, {
+						"name": "valAnno",
+						"type": "int"
+					}]
+				}
+			}, {
+				"name": "documentos",
+				"type": ["null", {
+					"type": "array",
+					"items": {
+						"type": "record",
+						"name": "Documento",
+						"fields": [{
+							"name": "codIdiomDocum",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codMedEnvio",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codNivelRelacionado",
+							"type": "string"
+						}, {
+							"name": "codTipo",
+							"type": "string"
+						}, {
+							"name": "desIdiomDocum",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "desTipo",
+							"type": "string"
+						}, {
+							"name": "estado",
+							"type": {
+								"type": "record",
+								"name": "EstadoDocumento",
+								"fields": [{
+									"name": "causas",
+									"type": ["null", {
+										"type": "array",
+										"items": {
+											"type": "record",
+											"name": "CausaEstadoDoc",
+											"fields": [{
+												"name": "codTipCausEstado",
+												"type": ["null", "string"],
+												"default": null
+											}, {
+												"name": "desTipCausEstado",
+												"type": ["null", "string"],
+												"default": null
+											}, {
+												"name": "numOrdenCausa",
+												"type": ["null", "int"],
+												"default": null
+											}]
+										},
+										"java-class": "java.util.List"
+									}],
+									"default": null
+								}, {
+									"name": "codEstado",
+									"type": "string"
+								}, {
+									"name": "codSubestado",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "desEstado",
+									"type": "string"
+								}, {
+									"name": "desSubestado",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "fecEstado",
+									"type": {
+										"type": "int",
+										"logicalType": "date"
+									}
+								}]
+							}
+						}, {
+							"name": "fecEfecto",
+							"type": {
+								"type": "int",
+								"logicalType": "date"
+							}
+						}, {
+							"name": "fecUltReclam",
+							"type": ["null", {
+								"type": "int",
+								"logicalType": "date"
+							}],
+							"default": null
+						}, {
+							"name": "idDocumento",
+							"type": "string"
+						}, {
+							"name": "idNivel",
+							"type": "string"
+						}, {
+							"name": "indTipo",
+							"type": "string"
+						}, {
+							"name": "txtTituloDocum",
+							"type": ["null", "string"],
+							"default": null
+						}]
+					},
+					"java-class": "java.util.List"
+				}],
+				"default": null
+			}, {
+				"name": "domicilios",
+				"type": ["null", {
+					"type": "array",
+					"items": {
+						"type": "record",
+						"name": "Domicilio",
+						"fields": [{
+							"name": "codEntColectiva",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codEntSingular",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codLocalidad",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codMunicipio",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codNucPobla",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codPais",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codPostal",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codProvincia",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codTipVia",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "coordenada",
+							"type": ["null", {
+								"type": "record",
+								"name": "Coordenada",
+								"fields": [{
+									"name": "codTipoCoord",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "desSistCoord",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "desTipoCoord",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "indSistCoord",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "numCoordX",
+									"type": ["null", "int"],
+									"default": null
+								}, {
+									"name": "numCoordY",
+									"type": ["null", "int"],
+									"default": null
+								}]
+							}],
+							"default": null
+						}, {
+							"name": "desDomicilio",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "desLocalidad",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "desPais",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "desPoblacion",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "desProvincia",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "desTipVia",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "numCompDomic",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "numDomicilio",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "valBloqueDomic",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "valEscalDomic",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "valPisoDomic",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "valPortalDomic",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "valPuertaDomic",
+							"type": ["null", "string"],
+							"default": null
+						}]
+					},
+					"java-class": "java.util.List"
+				}],
+				"default": null
+			}, {
+				"name": "encargos",
+				"type": ["null", {
+					"type": "array",
+					"items": {
+						"type": "record",
+						"name": "Encargo",
+						"fields": [{
+							"name": "codActEncargo",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codMotEnvProfes",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "desActEncargo",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "descReferProfes",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "estado",
+							"type": {
+								"type": "record",
+								"name": "EstadoEncargo",
+								"fields": [{
+									"name": "causas",
+									"type": ["null", {
+										"type": "array",
+										"items": {
+											"type": "record",
+											"name": "CausaEstadoEncargo",
+											"fields": [{
+												"name": "codTipCausEstado",
+												"type": ["null", "string"],
+												"default": null
+											}, {
+												"name": "desTipCausEstado",
+												"type": ["null", "string"],
+												"default": null
+											}, {
+												"name": "numOrdenCausa",
+												"type": ["null", "int"],
+												"default": null
+											}]
+										},
+										"java-class": "java.util.List"
+									}],
+									"default": null
+								}, {
+									"name": "codEstado",
+									"type": "string"
+								}, {
+									"name": "codSubestado",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "desEstado",
+									"type": "string"
+								}, {
+									"name": "desSubestado",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "fecEstado",
+									"type": {
+										"type": "int",
+										"logicalType": "date"
+									}
+								}]
+							}
+						}, {
+							"name": "fecCita",
+							"type": ["null", {
+								"type": "int",
+								"logicalType": "date"
+							}],
+							"default": null
+						}, {
+							"name": "fecFinEncargo",
+							"type": ["null", {
+								"type": "int",
+								"logicalType": "date"
+							}],
+							"default": null
+						}, {
+							"name": "fecInicEncargo",
+							"type": ["null", {
+								"type": "int",
+								"logicalType": "date"
+							}],
+							"default": null
+						}, {
+							"name": "idFactura",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "indUrgenEncargo",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "numEncargo",
+							"type": "string"
+						}, {
+							"name": "numFactura",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "numProfesional",
+							"type": "string"
+						}, {
+							"name": "txtMotEnvProfes",
+							"type": ["null", "string"],
+							"default": null
+						}]
+					},
+					"java-class": "java.util.List"
+				}],
+				"default": null
+			}, {
+				"name": "fechasYEstados",
+				"type": {
+					"type": "record",
+					"name": "FechasYEstados",
+					"fields": [{
+						"name": "estadoSiniestro",
+						"type": {
+							"type": "record",
+							"name": "EstadoSiniestro",
+							"fields": [{
+								"name": "codEstActual",
+								"type": "string"
+							}, {
+								"name": "codSubestadoActual",
+								"type": ["null", "string"],
+								"default": null
+							}, {
+								"name": "desEstActual",
+								"type": "string"
+							}, {
+								"name": "desSubestadoActual",
+								"type": ["null", "string"],
+								"default": null
+							}, {
+								"name": "fecEstActual",
+								"type": {
+									"type": "int",
+									"logicalType": "date"
+								}
+							}, {
+								"name": "historico",
+								"type": ["null", {
+									"type": "array",
+									"items": {
+										"type": "record",
+										"name": "Historico",
+										"fields": [{
+											"name": "causasSiniestro",
+											"type": ["null", {
+												"type": "array",
+												"items": {
+													"type": "record",
+													"name": "CausaEstadoHistorico",
+													"fields": [{
+														"name": "codTipCausEstado",
+														"type": ["null", "string"],
+														"default": null
+													}, {
+														"name": "desTipCausEstado",
+														"type": ["null", "string"],
+														"default": null
+													}, {
+														"name": "numOrdenCausa",
+														"type": ["null", "int"],
+														"default": null
+													}]
+												},
+												"java-class": "java.util.List"
+											}],
+											"default": null
+										}, {
+											"name": "codEstado",
+											"type": "string"
+										}, {
+											"name": "codSubestado",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "desEstado",
+											"type": "string"
+										}, {
+											"name": "desSubestado",
+											"type": ["null", "string"],
+											"default": null
+										}, {
+											"name": "fecEstado",
+											"type": {
+												"type": "int",
+												"logicalType": "date"
+											}
+										}, {
+											"name": "fecFinEstado",
+											"type": ["null", {
+												"type": "int",
+												"logicalType": "date"
+											}],
+											"default": null
+										}, {
+											"name": "numOrdenEstado",
+											"type": "int"
+										}]
+									},
+									"java-class": "java.util.List"
+								}],
+								"default": null
+							}]
+						}
+					}, {
+						"name": "fechas",
+						"type": {
+							"type": "record",
+							"name": "Fechas",
+							"fields": [{
+								"name": "fecApertura",
+								"type": ["null", {
+									"type": "int",
+									"logicalType": "date"
+								}],
+								"default": null
+							}, {
+								"name": "fecCierre",
+								"type": ["null", {
+									"type": "int",
+									"logicalType": "date"
+								}],
+								"default": null
+							}, {
+								"name": "fecComunicacion",
+								"type": {
+									"type": "int",
+									"logicalType": "date"
+								}
+							}, {
+								"name": "fecOcurrencia",
+								"type": ["null", {
+									"type": "int",
+									"logicalType": "date"
+								}],
+								"default": null
+							}, {
+								"name": "fecReapertura",
+								"type": ["null", {
+									"type": "int",
+									"logicalType": "date"
+								}],
+								"default": null
+							}]
+						}
+					}]
+				}
+			}, {
+				"name": "figuras",
+				"type": {
+					"type": "array",
+					"items": {
+						"type": "record",
+						"name": "Figura",
+						"fields": [{
+							"name": "codNivelRelacionado",
+							"type": "string"
+						}, {
+							"name": "codSexo",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codTipoDocIdent",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codTipoPersona",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codTipoRol",
+							"type": "string"
+						}, {
+							"name": "desSexo",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "desTipoDocIdent",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "desTipoPersona",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "desTipoRol",
+							"type": "string"
+						}, {
+							"name": "domicilios",
+							"type": ["null", {
+								"type": "array",
+								"items": "Domicilio",
+								"java-class": "java.util.List"
+							}],
+							"default": null
+						}, {
+							"name": "fecCaducidad",
+							"type": ["null", {
+								"type": "int",
+								"logicalType": "date"
+							}],
+							"default": null
+						}, {
+							"name": "fecNacCalculada",
+							"type": ["null", {
+								"type": "int",
+								"logicalType": "date"
+							}],
+							"default": null
+						}, {
+							"name": "fecNacimiento",
+							"type": ["null", {
+								"type": "int",
+								"logicalType": "date"
+							}],
+							"default": null
+						}, {
+							"name": "idNivel",
+							"type": "string"
+						}, {
+							"name": "idPersona",
+							"type": "string"
+						}, {
+							"name": "numDocumIdent",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "numOrdRol",
+							"type": "int"
+						}, {
+							"name": "txtNombre",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "txtPrimerApellido",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "txtRazonSocial",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "txtSegundoApellido",
+							"type": ["null", "string"],
+							"default": null
+						}]
+					},
+					"java-class": "java.util.List"
+				}
+			}, {
+				"name": "fraude",
+				"type": ["null", {
+					"type": "record",
+					"name": "Fraude",
+					"fields": [{
+						"name": "indDuplicidad",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "indScoringFraude",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "txtNotasFraude",
+						"type": ["null", "string"],
+						"default": null
+					}]
+				}],
+				"default": null
+			}, {
+				"name": "informacionDecesos",
+				"type": ["null", {
+					"type": "record",
+					"name": "Deceso",
+					"fields": [{
+						"name": "codModServicio",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "impServContrat",
+						"type": ["null", "double"],
+						"default": null
+					}, {
+						"name": "impSumaAseg",
+						"type": ["null", "double"],
+						"default": null
+					}, {
+						"name": "indPrestTrasNacion",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "localizaciones",
+						"type": ["null", {
+							"type": "array",
+							"items": {
+								"type": "record",
+								"name": "Localizacion",
+								"fields": [{
+									"name": "codLocalidad",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "codNivelLocalizac",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "codProvincia",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "desLocalidad",
+									"type": ["null", "string"],
+									"default": null
+								}]
+							},
+							"java-class": "java.util.List"
+						}],
+						"default": null
+					}, {
+						"name": "presupuestos",
+						"type": ["null", {
+							"type": "array",
+							"items": {
+								"type": "record",
+								"name": "Presupuesto",
+								"fields": [{
+									"name": "codPartida",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "impPresupuesto",
+									"type": ["null", "double"],
+									"default": null
+								}, {
+									"name": "numPresupuesto",
+									"type": ["null", "string"],
+									"default": null
+								}]
+							},
+							"java-class": "java.util.List"
+						}],
+						"default": null
+					}]
+				}],
+				"default": null
+			}, {
+				"name": "metadata",
+				"type": ["null", {
+					"type": "record",
+					"name": "Metadata",
+					"fields": [{
+						"name": "codVersion",
+						"type": "int"
+					}, {
+						"name": "fecFiltroCDC",
+						"type": {
+							"type": "long",
+							"logicalType": "timestamp-millis"
+						}
+					}, {
+						"name": "fecFinDatos",
+						"type": ["null", {
+							"type": "long",
+							"logicalType": "timestamp-millis"
+						}],
+						"default": null
+					}, {
+						"name": "fecHoraRegistro",
+						"type": {
+							"type": "long",
+							"logicalType": "timestamp-millis"
+						}
+					}, {
+						"name": "fecNoPersistida",
+						"type": ["null", {
+							"type": "long",
+							"logicalType": "timestamp-millis"
+						}],
+						"default": null
+					}, {
+						"name": "fecSQL",
+						"type": {
+							"type": "long",
+							"logicalType": "timestamp-millis"
+						}
+					}, {
+						"name": "idClienteCreacion",
+						"type": "string"
+					}, {
+						"name": "numOffsetCDC",
+						"type": "long"
+					}, {
+						"name": "numOffsetCarga",
+						"type": "long"
+					}, {
+						"name": "numOffsetFiltrado",
+						"type": "long"
+					}, {
+						"name": "numOffsetPersistid",
+						"type": "long"
+					}, {
+						"name": "numUltUsuario",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "txtCircuitoOrigen",
+						"type": "string"
+					}, {
+						"name": "txtHash",
+						"type": "string"
+					}]
+				}],
+				"default": null
+			}, {
+				"name": "objetosAsegurados",
+				"type": ["null", {
+					"type": "array",
+					"items": {
+						"type": "record",
+						"name": "ObjetoAsegurado",
+						"fields": [{
+							"name": "coberturasAfectadas",
+							"type": ["null", {
+								"type": "array",
+								"items": {
+									"type": "record",
+									"name": "Cobertura",
+									"fields": [{
+										"name": "codAgrupGarantia",
+										"type": ["null", "string"],
+										"default": null
+									}, {
+										"name": "codGarantia",
+										"type": ["null", "string"],
+										"default": null
+									}, {
+										"name": "codSubgarantia",
+										"type": ["null", "string"],
+										"default": null
+									}, {
+										"name": "codTipComplem",
+										"type": ["null", "string"],
+										"default": null
+									}, {
+										"name": "estado",
+										"type": {
+											"type": "record",
+											"name": "EstadoRiesgoAfc",
+											"fields": [{
+												"name": "causas",
+												"type": ["null", {
+													"type": "array",
+													"items": {
+														"type": "record",
+														"name": "CausaRieAfc",
+														"fields": [{
+															"name": "codTipCausEstado",
+															"type": ["null", "string"],
+															"default": null
+														}, {
+															"name": "desTipCausEstado",
+															"type": ["null", "string"],
+															"default": null
+														}, {
+															"name": "numOrdenCausa",
+															"type": ["null", "int"],
+															"default": null
+														}]
+													},
+													"java-class": "java.util.List"
+												}],
+												"default": null
+											}, {
+												"name": "codEstado",
+												"type": "string"
+											}, {
+												"name": "codSubestado",
+												"type": ["null", "string"],
+												"default": null
+											}, {
+												"name": "desEstado",
+												"type": "string"
+											}, {
+												"name": "desSubestado",
+												"type": ["null", "string"],
+												"default": null
+											}, {
+												"name": "fecEstado",
+												"type": {
+													"type": "int",
+													"logicalType": "date"
+												}
+											}]
+										}
+									}, {
+										"name": "idRiesgoObjAseg",
+										"type": ["null", "string"],
+										"default": null
+									}]
+								},
+								"java-class": "java.util.List"
+							}],
+							"default": null
+						}, {
+							"name": "codSubtipDanno",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codTipAgrupacion",
+							"type": "string"
+						}, {
+							"name": "codTipDanno",
+							"type": "string"
+						}, {
+							"name": "idObjAsegurado",
+							"type": "string"
+						}, {
+							"name": "indGradoInval",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "numCertRelac",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "tipObjAsegurado",
+							"type": "string"
+						}]
+					},
+					"java-class": "java.util.List"
+				}],
+				"default": null
+			}, {
+				"name": "procedimientoJud",
+				"type": ["null", {
+					"type": "array",
+					"items": {
+						"type": "record",
+						"name": "ProcedimientoJudicial",
+						"fields": [{
+							"name": "desProcJudicial",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "estado",
+							"type": {
+								"type": "record",
+								"name": "EstadoPrJud",
+								"fields": [{
+									"name": "causas",
+									"type": ["null", {
+										"type": "array",
+										"items": {
+											"type": "record",
+											"name": "CausaPrJud",
+											"fields": [{
+												"name": "codTipCausEstado",
+												"type": ["null", "string"],
+												"default": null
+											}, {
+												"name": "desTipCausEstado",
+												"type": ["null", "string"],
+												"default": null
+											}, {
+												"name": "numOrdenCausa",
+												"type": ["null", "int"],
+												"default": null
+											}]
+										},
+										"java-class": "java.util.List"
+									}],
+									"default": null
+								}, {
+									"name": "codEstado",
+									"type": "string"
+								}, {
+									"name": "codSubestado",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "desEstado",
+									"type": "string"
+								}, {
+									"name": "desSubestado",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "fecEstado",
+									"type": {
+										"type": "int",
+										"logicalType": "date"
+									}
+								}]
+							}
+						}, {
+							"name": "fecInicProcJudicial",
+							"type": ["null", {
+								"type": "int",
+								"logicalType": "date"
+							}],
+							"default": null
+						}, {
+							"name": "fecResProcJudicial",
+							"type": ["null", {
+								"type": "int",
+								"logicalType": "date"
+							}],
+							"default": null
+						}, {
+							"name": "idExpJudExt",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "idProcJudicial",
+							"type": "string"
+						}, {
+							"name": "indResSentencia",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "numProcJudicial",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "riesgo",
+							"type": ["null", {
+								"type": "record",
+								"name": "RiesgoPrJud",
+								"fields": [{
+									"name": "idRiesgoPrJud",
+									"type": ["null", "string"],
+									"default": null
+								}]
+							}],
+							"default": null
+						}]
+					},
+					"java-class": "java.util.List"
+				}],
+				"default": null
+			}, {
+				"name": "producto",
+				"type": {
+					"type": "record",
+					"name": "Producto",
+					"fields": [{
+						"name": "codModalidadPol",
+						"type": "string"
+					}, {
+						"name": "codRamoPol",
+						"type": "string"
+					}]
+				}
+			}, {
+				"name": "profesionales",
+				"type": ["null", {
+					"type": "array",
+					"items": {
+						"type": "record",
+						"name": "Profesional",
+						"fields": [{
+							"name": "codSubtipo",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codTipoDocIdent",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codTipoIVA",
+							"type": "string"
+						}, {
+							"name": "codTipoRol",
+							"type": "string"
+						}, {
+							"name": "desEspecialProfes",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "fecInicActivProfes",
+							"type": ["null", {
+								"type": "int",
+								"logicalType": "date"
+							}],
+							"default": null
+						}, {
+							"name": "idProfesional",
+							"type": "string"
+						}, {
+							"name": "indIVAREGE",
+							"type": "string"
+						}, {
+							"name": "indRetencion",
+							"type": "string"
+						}, {
+							"name": "numProfesional",
+							"type": "string"
+						}, {
+							"name": "porIRPF",
+							"type": "double"
+						}, {
+							"name": "txtNombre",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "txtPrimerApellido",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "txtRazonSocial",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "txtSegundoApellido",
+							"type": ["null", "string"],
+							"default": null
+						}]
+					},
+					"java-class": "java.util.List"
+				}],
+				"default": null
+			}, {
+				"name": "reaseguros",
+				"type": ["null", {
+					"type": "array",
+					"items": {
+						"type": "record",
+						"name": "Reaseguro",
+						"fields": [{
+							"name": "codEntReaseguro",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codSinExtVincReaseg",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "indTipReaseguro",
+							"type": ["null", "string"],
+							"default": null
+						}]
+					},
+					"java-class": "java.util.List"
+				}],
+				"default": null
+			}, {
+				"name": "reclamacionesTercer",
+				"type": ["null", {
+					"type": "array",
+					"items": {
+						"type": "record",
+						"name": "ReclamacionTerceros",
+						"fields": [{
+							"name": "codTipo",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "codTramReclTerc",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "companniaExterna",
+							"type": ["null", {
+								"type": "array",
+								"items": {
+									"type": "record",
+									"name": "CompaniaExterna",
+									"fields": [{
+										"name": "desRefOtrComp",
+										"type": ["null", "string"],
+										"default": null
+									}, {
+										"name": "numPolizaOtrComp",
+										"type": ["null", "string"],
+										"default": null
+									}]
+								},
+								"java-class": "java.util.List"
+							}],
+							"default": null
+						}, {
+							"name": "desTramReclTerc",
+							"type": ["null", "string"],
+							"default": null
+						}, {
+							"name": "estado",
+							"type": {
+								"type": "record",
+								"name": "EstadoReclamacion",
+								"fields": [{
+									"name": "causas",
+									"type": ["null", {
+										"type": "array",
+										"items": {
+											"type": "record",
+											"name": "CausaEstadoReclamacion",
+											"fields": [{
+												"name": "codTipCausEstado",
+												"type": ["null", "string"],
+												"default": null
+											}, {
+												"name": "desTipCausEstado",
+												"type": ["null", "string"],
+												"default": null
+											}, {
+												"name": "numOrdenCausa",
+												"type": ["null", "int"],
+												"default": null
+											}]
+										},
+										"java-class": "java.util.List"
+									}],
+									"default": null
+								}, {
+									"name": "codEstado",
+									"type": "string"
+								}, {
+									"name": "codSubestado",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "desEstado",
+									"type": "string"
+								}, {
+									"name": "desSubestado",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "fecEstado",
+									"type": {
+										"type": "int",
+										"logicalType": "date"
+									}
+								}]
+							}
+						}, {
+							"name": "fecReclTerc",
+							"type": ["null", {
+								"type": "int",
+								"logicalType": "date"
+							}],
+							"default": null
+						}, {
+							"name": "idReclamTerceros",
+							"type": "string"
+						}, {
+							"name": "numOrden",
+							"type": ["null", "int"],
+							"default": null
+						}]
+					},
+					"java-class": "java.util.List"
+				}],
+				"default": null
+			}, {
+				"name": "reinversion",
+				"type": ["null", {
+					"type": "record",
+					"name": "Reinversion",
+					"fields": [{
+						"name": "indReinversion",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "polizasRelacionadas",
+						"type": ["null", {
+							"type": "array",
+							"items": {
+								"type": "record",
+								"name": "Poliza",
+								"fields": [{
+									"name": "codEstadoReinv",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "idPolizaODLReinv",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "idPolizaOrigenReinv",
+									"type": ["null", "string"],
+									"default": null
+								}, {
+									"name": "numRecibo",
+									"type": ["null", "string"],
+									"default": null
+								}]
+							},
+							"java-class": "java.util.List"
+						}],
+						"default": null
+					}]
+				}],
+				"default": null
+			}, {
+				"name": "rescate",
+				"type": ["null", {
+					"type": "record",
+					"name": "Rescate",
+					"fields": [{
+						"name": "codEntidRescate",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "codTipo",
+						"type": "string"
+					}, {
+						"name": "fecRescate",
+						"type": {
+							"type": "int",
+							"logicalType": "date"
+						}
+					}, {
+						"name": "impRescate",
+						"type": ["null", "double"],
+						"default": null
+					}, {
+						"name": "indMotRescate",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "indSubMotRescate",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "indTipSegContr",
+						"type": ["null", "string"],
+						"default": null
+					}]
+				}],
+				"default": null
+			}, {
+				"name": "tramitador",
+				"type": ["null", {
+					"type": "record",
+					"name": "Tramitador",
+					"fields": [{
+						"name": "codAgenTramitadora",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "codTramitador",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "descAgenTramitadora",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "fecInicTramitador",
+						"type": ["null", {
+							"type": "int",
+							"logicalType": "date"
+						}],
+						"default": null
+					}, {
+						"name": "txtNombre",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "txtPrimerApellido",
+						"type": ["null", "string"],
+						"default": null
+					}, {
+						"name": "txtSegundoApellido",
+						"type": ["null", "string"],
+						"default": null
+					}]
+				}],
+				"default": null
+			}]
+		}
+	}]
+}

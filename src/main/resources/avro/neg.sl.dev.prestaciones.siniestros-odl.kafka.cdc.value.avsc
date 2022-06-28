@@ -1,0 +1,53 @@
+{
+	"namespace": "com.santalucia.prestaciones.siniestros_odl.cdc.avro",
+	"type": "record",
+	"name": "CdcValue",
+	"fields": [{
+			"name": "operation",
+			"type": "int"
+		},
+		{
+			"name": "seqNumber",
+			"type": "long"
+		},
+		{
+			"name": "transactionId",
+			"type": "int"
+		},
+		{
+			"name": "tableId",
+			"type": "int"
+		},
+		{
+			"name": "tableName",
+			"type": "string"
+		},
+		{
+			"name": "actionTime",
+			"type": "long"
+		},
+		{
+			"name": "userId",
+			"type": "int"
+		},
+		{
+			"name": "columns",
+			"type": {
+				"type": "array",
+				"items": {
+					"type": "record",
+					"name": "CDCProcessedRecordColumn",
+					"fields": [{
+							"name": "name",
+							"type": "string"
+						},
+						{
+							"name": "value",
+							"type": "string"
+						}
+					]
+				}
+			}
+		}
+	]
+}
