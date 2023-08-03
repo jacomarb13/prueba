@@ -1,0 +1,9 @@
+{
+	"name": "OdlPrespCargaPresupuestosOdlKey",
+	"type": "record",
+	"namespace": "com.santalucia.contratacion.presupuestos_odl.carga.avro",
+	"fields": [{
+		"name": "idPresupuestoODL",
+		"type": "string"
+	}]
+}
